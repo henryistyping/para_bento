@@ -7,18 +7,20 @@ const Button = ({ className, href, onClick, children, px, white, }) => {
 
   const spanClasses = 'relative z-10';
 
-  const renderButton = () => (
-    <button className={classes}>
-      <span className={spanClasses}>{children}</span>
-      {ButtonSvg(white)}
-    </button>
-  )
-
+  // If href link is passed as prop
   const renderLink = () => (
     <a href={href} className={classes}>
       <span className={spanClasses}>{children}</span>
       {ButtonSvg(white)}
     </a>
+  )
+  
+  // If NOT:
+  const renderButton = () => (
+    <button className={classes}>
+      <span className={spanClasses}>{children}</span>
+      {ButtonSvg(white)}
+    </button>
   )
 
   return href ? renderLink() : renderButton();
